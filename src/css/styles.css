@@ -1,20 +1,21 @@
 .is-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
+
 .no-display {
   display: none;
 }
 
-.container{
+.container {
   display: flex;
 }
 
@@ -24,8 +25,8 @@
   align-items: center;
   position: absolute;
 
-  top: 50%;
-  left: 50%;
+  top: 25%;
+  left: 45%;
   right: 0;
   bottom: 0;
   z-index: 1000;
@@ -48,12 +49,13 @@
   }
 }
 
-.ss-main.mySeleсtor{
-  width: 300px;
+.ss-main.mySeleсtor {
+  min-width: 300px;
+  max-width: 300px;
   height: 35px;
 }
 
-.image{
+.image {
   flex: 1;
   padding: 20px;
   display: flex;
@@ -63,12 +65,12 @@
   max-width: 100%;
 }
 
-.image img{
+.image img {
   max-width: 600px;
   height: auto;
 }
 
-.cat-txt{
+.cat-txt {
   flex: 1;
   padding: 20px;
 }

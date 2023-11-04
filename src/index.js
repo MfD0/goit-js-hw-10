@@ -8,7 +8,7 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-loader.classList.add('hidden');
+loader.classList.add('loader');
 error.classList.add('is-hidden');
 catInfo.classList.add('is-hidden');
 selector.style.display = 'none';
@@ -16,7 +16,7 @@ selector.style.display = 'none';
 fetchBreeds()
   .then(breeds => {
     selector.innerHTML = createSectionOptionsMarkup(breeds);
-    selector.style.display = 'block';
+    selector.style.display = 'flex';
     selector.classList.add('mySeleсtor')
     new SlimSelect({
       select: selector,
@@ -25,7 +25,7 @@ fetchBreeds()
   })
   .catch(fetchError)
   .finally(() => {
-    loader.classList.add('is-hidden');
+    loader.classList.replace('loader', 'is-hidden')
   });
 
 function createSectionOptionsMarkup(breedsArr) {
@@ -49,19 +49,20 @@ function displayCatInfo(catData) {
 }
 
 function selectBreed(evt) {
-    loader.classList.remove('is-hidden');
+    loader.classList.replace('is-hidden', 'loader');
+    selector.classList.add('is-hidden');
     catInfo.classList.add('is-hidden');
 
     const breedId = evt.currentTarget.value;
     fetchCatByBreed(breedId)
         .then(data => {
-            loader.classList.add('is-hidden');
+            loader.classList.add('is-hidden','loader');
             displayCatInfo(data[0]);
         })
         .catch(fetchError);
 }
 
 function fetchError(error) {
-    loader.classList.add('is-hidden');
+    loader.classList.add('is-hidden','loader');
     Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!');
 }
